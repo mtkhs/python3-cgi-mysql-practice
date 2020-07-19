@@ -7,13 +7,8 @@
 ## Install
 
 ```
-$ pip3 install mysqlclient python3-dotenv
-```
-
-### for Ubuntu
-
-```
-$ sudo apt install python3-dotenv
+$ sudo apt install python3-pip
+$ sudo python3 -m pip install mysqlclient python-dotenv
 ```
 
 ### Edit your .env
