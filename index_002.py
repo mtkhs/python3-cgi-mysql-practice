@@ -15,14 +15,6 @@ import MySQLdb
 con = None
 cur = None
 
-# 設定情報を外部設定ファイル（.env）から読み取るライブラリ
-# （今回はデータベースに接続するための各情報を設定ファイルから読み取るために使用）
-import os
-from pathlib import Path
-env_path = Path('.') / '.env'
-from dotenv import load_dotenv
-load_dotenv( dotenv_path = env_path, verbose = True )
-
 # トップ画面のHTMLを出力するメソッド
 def print_html():
     # html 開始
@@ -91,7 +83,7 @@ def proceed_methods():
         cur.execute( sql, ( poster_name, body_text ) )
         con.commit()
 
-    # 処理に成功したらトップ画面を再表示
+    # 処理に成功したらトップ画面に自動遷移するページを出力
     print( '<!DOCTYPE html>' )
     print( '<html>' )
     print( '    <head>' )
@@ -112,10 +104,10 @@ def main():
     global con, cur
     try:
         con = MySQLdb.connect(
-            host = os.environ.get( 'bbs_db_host' ),
-            user = os.environ.get( 'bbs_db_user' ),
-            passwd = os.environ.get( 'bbs_db_pass' ),
-            db = os.environ.get( 'bbs_db_name' ),
+            host = 'xxx.xxx.xxx.xxx',
+            user = 'yourname',
+            passwd = 'yourpassword',
+            db = 'yourdbname',
             use_unicode = True,
             charset = 'utf8'
         )
